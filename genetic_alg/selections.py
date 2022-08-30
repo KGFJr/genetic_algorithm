@@ -20,4 +20,5 @@ def boltzmann_selection(fitness, T):
     f=np.array(fitness)
     norm=np.sum(np.exp(f/T))
     p=np.exp(f/T)/norm
+    print(p)
     return p
