@@ -33,7 +33,7 @@ class GeneticAlg():
         self.keep_parents=keep_parents
         self.fitness_hist=[]
         self.best_fitness=None
-        self.worst_fitness=None;
+        self.worst_fitness=None
         self.best_solution=None
         self.worst_solution=None
         
