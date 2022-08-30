@@ -33,7 +33,10 @@ class GeneticAlg():
         self.keep_parents=keep_parents
         self.fitness_hist=[]
         self.best_fitness=None
+        self.worst_firness=None;
         self.best_solution=None
+        self.worst_solution=None
+        
         self.num_generations=0
         self.fitness=None
         self.callback=callback
@@ -43,14 +46,17 @@ class GeneticAlg():
         '''Compute fitness and save best solution'''
         self.fitness=list(map(self.fitness_fn, self.population))
         current_best=np.amax(self.fitness)
+        current_worst=np.amin(self.fitness)
         if self.best_fitness is None:
             self.best_fitness=np.amax(self.fitness)
             self.best_solution=self.population[np.argmax(self.fitness)]
+           self.worst_fitness=np.amin(self.fitness)
+           self.worst_solution=self.population[np.argmin(self.fitness)]
         elif current_best>self.best_fitness:
             self.best_fitness=np.amax(self.fitness)
             self.best_solution=self.population[np.argmax(self.fitness)]
         self.fitness_hist.append((self.num_generations, current_best, 
-                                  np.mean(self.fitness), np.std(self.fitness)))
+                                  np.mean(self.fitness), np.std(self.fitness), current_worst))
 
     def generate_new_pop(self):
         '''Generate a new population of solutions'''
@@ -99,11 +105,13 @@ class GeneticAlg():
                   print("-"*79)
                   print('Current best fitness:{},\
                          \nFitness mean:{},\nFitness std:{},\
-                         \nAll-time best fitness:{}.'.format(
+                         \nAll-time best fitness:{},\
+                         \nCurrent worst fitness:{}.'.format(
                           self.fitness_hist[-1][1],
                           self.fitness_hist[-1][2], 
                           self.fitness_hist[-1][3],
-                          self.best_fitness)
+                          self.best_fitness),
+                          self.fitness_hist[-1][4]
                           )
                   print('Elapsed Time:{}h:{}m:{}s, Estimated to completion:{}h,{}m, {}s'.format(int(h),int(m),int(s),
                                                 int(he),int(me),int(se)))
@@ -124,5 +132,7 @@ class GeneticAlg():
         np.save(dir+'/saved_model/generation', self.num_generations)
         np.save(dir+'/saved_model/hist', self.fitness_hist)
         np.save(dir+'/saved_model/best_fitness', self.best_fitness)
+        np.save(dir+'/saved_model/worst_fitness', self.worst_fitness)
         np.save(dir+'/saved_model/best_sol', self.best_solution)
+        np.save(dir+'/saved_model/worst_sol', self.best_solution)
         print('Model saved')
