@@ -113,7 +113,7 @@ class GeneticAlg():
                   print( 'Mediana:{}', round(self.fitness_hist[-1][5],0))
                   print( 'Melhor das Gerações', round(self.best_fitness,0)
                                                                    
-                  print('Tempo decorrido:{}h:{}m:{}s, Tempo de Execução Estimado:{}h,{}m, {}s'.format(int(h),int(m),int(s),
+                   print('Elapsed Time:{}h:{}m:{}s, Estimated to completion:{}h,{}m, {}s'.format(int(h),int(m),int(s),
                                                 int(he),int(me),int(se)))
                   if plot_fitness:
                       plt.hist(self.fitness)
