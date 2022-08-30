@@ -58,7 +58,7 @@ class GeneticAlg():
             self.worst_fitness=np.amin(self.fitness)
             self.worst_solution=self.population[np.argmin(self.fitness)]
             self.fitness_hist.append((self.num_generations, current_best, 
-                                  np.mean(self.fitness), np.std(self.fitness), current_worst))
+                                  np.mean(self.fitness), np.std(self.fitness), current_worst, np.median(self.fitness)))
       
 
     def generate_new_pop(self):
@@ -106,18 +106,14 @@ class GeneticAlg():
                   print("-"*79)
                   print('Generation', self.num_generations)
                   print("-"*79)
-                  print('Current best fitness:{},\
-                         \nFitness mean:{},\nFitness std:{},\
-                         \nCurrent worst fitness:{},\
-                         \nAll-time best fitness:{}',
-                          round(self.fitness_hist[-1][1],0),
-                          round(self.fitness_hist[-1][2],0), 
-                          round(self.fitness_hist[-1][3],0),
-                          round(self.fitness_hist[-1][4],0),
-                          self.best_fitness
-                       )
-                        
-                  print('Elapsed Time:{}h:{}m:{}s, Estimated to completion:{}h,{}m, {}s'.format(int(h),int(m),int(s),
+                  print('Melhor Aptidão Atual:',round(self.fitness_hist[-1][1],0),'\
+                        \nAptidão Média:', round(self.fitness_hist[-1][2],0),'\  
+                        \nDesvio Padrão:', round(self.fitness_hist[-1][3],0),'\
+                        \nPior Aptidão Atual:', round(self.fitness_hist[-1][4],0),'\
+                        \n Mediana:{}', round(self.fitness_hist[-1][5],0),'\
+                        \nMelhor das gerações', round(self.best_fitness,0)
+                                                                   
+                  print('Tempo decorrido:{}h:{}m:{}s, Tempo de Execução Estimado:{}h,{}m, {}s'.format(int(h),int(m),int(s),
                                                 int(he),int(me),int(se)))
                   if plot_fitness:
                       plt.hist(self.fitness)
