@@ -50,18 +50,18 @@ class GeneticAlg():
         if self.best_fitness is None:
             self.best_fitness=np.amax(self.fitness)
             self.best_solution=self.population[np.argmax(self.fitness)]
-          #  self.worst_fitness=np.amin(self.fitness)
-           # self.worst_solution=self.population[np.argmin(self.fitness)]
+            self.worst_fitness=np.amin(self.fitness)
+            self.worst_solution=self.population[np.argmin(self.fitness)]
         elif current_best>self.best_fitness:
             self.best_fitness=np.amax(self.fitness)
             self.best_solution=self.population[np.argmax(self.fitness)]
             self.fitness_hist.append((self.num_generations, current_best, 
                                   np.mean(self.fitness), np.std(self.fitness), current_worst))
-       # elif current_worst>self.worst_fitness:
-       #    self.worst_fitness=np.amin(self.fitness)
-       #     self.worst_solution=self.population[np.argmin(self.fitness)]
-       #     self.fitness_hist.append((self.num_generations, current_best, 
-       #                           np.mean(self.fitness), np.std(self.fitness), current_worst))
+           if current_worst>self.worst_fitness:
+             self.worst_fitness=np.amin(self.fitness)
+             self.worst_solution=self.population[np.argmin(self.fitness)]
+             self.fitness_hist.append((self.num_generations, current_best, 
+                                  np.mean(self.fitness), np.std(self.fitness), current_worst))
         
 
     def generate_new_pop(self):
@@ -111,13 +111,14 @@ class GeneticAlg():
                   print("-"*79)
                   print('Current best fitness:{},\
                          \nFitness mean:{},\nFitness std:{},\
-                         \nAll-time best fitness:{},\
-                         \nCurrent worst fitness:{}.'.format(
+                         \nCurrent worst fitness:{},\
+                         \nAll-time best fitness:{}.'.format(
                           self.fitness_hist[-1][1],
                           self.fitness_hist[-1][2], 
                           self.fitness_hist[-1][3],
-                          self.best_fitness,
-                          self.fitness_hist[-1][4]))
+                          self.fitness_hist[-1][4],
+                          self.best_fitness)
+                       )
                         
                   print('Elapsed Time:{}h:{}m:{}s, Estimated to completion:{}h,{}m, {}s'.format(int(h),int(m),int(s),
                                                 int(he),int(me),int(se)))
