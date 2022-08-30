@@ -55,8 +55,14 @@ class GeneticAlg():
         elif current_best>self.best_fitness:
             self.best_fitness=np.amax(self.fitness)
             self.best_solution=self.population[np.argmax(self.fitness)]
-        self.fitness_hist.append((self.num_generations, current_best, 
+            self.fitness_hist.append((self.num_generations, current_best, 
                                   np.mean(self.fitness), np.std(self.fitness), current_worst))
+        elif current_worst>self.worst_fitness:
+            self.worst_fitness=np.amin(self.fitness)
+            self.worst_solution=self.population[np.argmin(self.fitness)]
+            self.fitness_hist.append((self.num_generations, current_best, 
+                                  np.mean(self.fitness), np.std(self.fitness), current_worst))
+        
 
     def generate_new_pop(self):
         '''Generate a new population of solutions'''
@@ -134,5 +140,5 @@ class GeneticAlg():
         np.save(dir+'/saved_model/best_fitness', self.best_fitness)
         np.save(dir+'/saved_model/worst_fitness', self.worst_fitness)
         np.save(dir+'/saved_model/best_sol', self.best_solution)
-        np.save(dir+'/saved_model/worst_sol', self.best_solution)
+        np.save(dir+'/saved_model/worst_sol', self.worst_solution)
         print('Model saved')
