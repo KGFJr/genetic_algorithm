@@ -117,7 +117,7 @@ class GeneticAlg():
                           self.fitness_hist[-1][2], 
                           self.fitness_hist[-1][3],
                           self.best_fitness,
-                          self.fitness_hist[-1][4])
+                          self.fitness_hist[-1][4]))
                         
                   print('Elapsed Time:{}h:{}m:{}s, Estimated to completion:{}h,{}m, {}s'.format(int(h),int(m),int(s),
                                                 int(he),int(me),int(se)))
