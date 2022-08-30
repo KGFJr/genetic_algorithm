@@ -52,7 +52,7 @@ class GeneticAlg():
             self.best_solution=self.population[np.argmax(self.fitness)]
             self.worst_fitness=np.amin(self.fitness)
             self.worst_solution=self.population[np.argmin(self.fitness)]
-        if current_best>self.best_fitness:
+        elif current_best>self.best_fitness:
             self.best_fitness=np.amax(self.fitness)
             self.best_solution=self.population[np.argmax(self.fitness)]
             self.fitness_hist.append((self.num_generations, current_best, 
@@ -112,12 +112,12 @@ class GeneticAlg():
                   print('Current best fitness:{},\
                          \nFitness mean:{},\nFitness std:{},\
                          \nCurrent worst fitness:{},\
-                         \nAll-time best fitness:{}.'.format(
-                          self.fitness_hist[-1][1],
-                          self.fitness_hist[-1][2], 
-                          self.fitness_hist[-1][3],
-                          self.fitness_hist[-1][4],
-                          self.best_fitness)
+                         \nAll-time best fitness:{}',
+                          round(self.fitness_hist[-1][1],0),
+                          round(self.fitness_hist[-1][2],0), 
+                          round(self.fitness_hist[-1][3],0),
+                          round(self.fitness_hist[-1][4],0),
+                          self.best_fitness
                        )
                         
                   print('Elapsed Time:{}h:{}m:{}s, Estimated to completion:{}h,{}m, {}s'.format(int(h),int(m),int(s),
