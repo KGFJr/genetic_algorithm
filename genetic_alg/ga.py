@@ -108,7 +108,7 @@ class GeneticAlg():
                   print("-"*79)
                   print('Melhor Aptidão Atual:',round(self.fitness_hist[-1][1],0))
                   print( 'Aptidão Média:', round(self.fitness_hist[-1][2],0))  
-                  print( 'Desvio Padrão:', round(self.fitness_hist[-1][3],0)})
+                  print( 'Desvio Padrão:', round(self.fitness_hist[-1][3],0))
                   print( 'Pior Aptidão Atual:', round(self.fitness_hist[-1][4],0))
                   print( 'Mediana:{}', round(self.fitness_hist[-1][5],0))
                   print( 'Melhor das Gerações', round(self.best_fitness,0)
