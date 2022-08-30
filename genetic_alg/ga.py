@@ -33,7 +33,7 @@ class GeneticAlg():
         self.keep_parents=keep_parents
         self.fitness_hist=[]
         self.best_fitness=None
-        self.worst_firness=None;
+        self.worst_fitness=None;
         self.best_solution=None
         self.worst_solution=None
         
@@ -50,8 +50,8 @@ class GeneticAlg():
         if self.best_fitness is None:
             self.best_fitness=np.amax(self.fitness)
             self.best_solution=self.population[np.argmax(self.fitness)]
-           self.worst_fitness=np.amin(self.fitness)
-           self.worst_solution=self.population[np.argmin(self.fitness)]
+            self.worst_fitness=np.amin(self.fitness)
+            self.worst_solution=self.population[np.argmin(self.fitness)]
         elif current_best>self.best_fitness:
             self.best_fitness=np.amax(self.fitness)
             self.best_solution=self.population[np.argmax(self.fitness)]
