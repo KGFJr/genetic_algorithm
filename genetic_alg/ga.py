@@ -57,7 +57,7 @@ class GeneticAlg():
             self.best_solution=self.population[np.argmax(self.fitness)]
             self.worst_fitness=np.amin(self.fitness)
             self.worst_solution=self.population[np.argmin(self.fitness)]
-            self.fitness_hist.append((self.num_generations, current_best, 
+         self.fitness_hist.append((self.num_generations, current_best, 
                                   np.mean(self.fitness), np.std(self.fitness), current_worst, np.median(self.fitness)))
       
 
@@ -106,12 +106,12 @@ class GeneticAlg():
                   print("-"*79)
                   print('Generation', self.num_generations)
                   print("-"*79)
-                 # print(f'Melhor Aptidão Atual:{self.fitness_hist[1]:.0f}')
-                 # print(f'Aptidão Média:{self.fitness_hist[2]:.0f}')
-                 # print(f'Desvio Padrão:{self.fitness_hist[3]:.0f}')
-                 # print(f'Pior Aptidão Atual:{self.fitness_hist[4]:.0f}')
-                 # print(f'Mediana:{self.fitness_hist[5]:.0f}')
-                 # print('Melhor das Gerações: {:.0f}'.format(self.best_fitness))
+                  print(f'Melhor Aptidão Atual:{self.fitness_hist[1]:.0f}')
+                  print(f'Aptidão Média:{self.fitness_hist[2]:.0f}')
+                  print(f'Desvio Padrão:{self.fitness_hist[3]:.0f}')
+                  print(f'Pior Aptidão Atual:{self.fitness_hist[4]:.0f}')
+                  print(f'Mediana:{self.fitness_hist[5]:.0f}')
+                  print('Melhor das Gerações: {:.0f}'.format(self.best_fitness))
                                                                    
                   print('Elapsed Time:{}h:{}m:{}s, Estimated to completion:{}h,{}m, {}s'.format(int(h),int(m),int(s),
                                                 int(he),int(me),int(se)))
