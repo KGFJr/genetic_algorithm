@@ -112,7 +112,7 @@ class GeneticAlg():
                   print(f'Pior Aptidão Atual:{self.fitness_hist[-1][4]:10.0f}')
                   print(f'Desvio Padrão:{self.fitness_hist[-1][3]:10.0f}')
                   print('Melhor das Gerações: {:.0f}'.format(self.best_fitness))
-                                                                   
+                                                                  
                   print('Elapsed Time:{}h:{}m:{}s, Estimated to completion:{}h,{}m, {}s'.format(int(h),int(m),int(s),
                                                 int(he),int(me),int(se)))
                   if plot_fitness:
