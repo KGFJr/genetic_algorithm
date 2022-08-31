@@ -106,11 +106,11 @@ class GeneticAlg():
                   print("-"*79)
                   print('Generation', self.num_generations)
                   print("-"*79)
-                  print(f'Melhor Aptidão Atual:{self.fitness_hist[-1][1]:10.0f}')
-                  print(f'Aptidão Média:{self.fitness_hist[-1][2]:10.0f}')
-                  print(f'Mediana:{self.fitness_hist[-1][5]:10.0f}')
-                  print(f'Pior Aptidão Atual:{self.fitness_hist[-1][4]:10.0f}')
-                  print(f'Desvio Padrão:{self.fitness_hist[-1][3]:10.0f}')
+                  print(f'Melhor Aptidão Atual:{self.fitness_hist[-1][1]:.0f}')
+                  print(f'Aptidão Média:{self.fitness_hist[-1][2]:.0f}')
+                  print(f'Mediana:{self.fitness_hist[-1][5]:.0f}')
+                  print(f'Pior Aptidão Atual:{self.fitness_hist[-1][4]:.0f}')
+                  print(f'Desvio Padrão:{self.fitness_hist[-1][3]:.0f}')
                   print('Melhor das Gerações: {:.0f}'.format(self.best_fitness))
                                                                   
                   print('Elapsed Time:{}h:{}m:{}s, Estimated to completion:{}h,{}m, {}s'.format(int(h),int(m),int(s),
