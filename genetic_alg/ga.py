@@ -24,7 +24,7 @@ class GeneticAlg():
               keep_parents: int. Parents to be kept for elitism selection.
               callback: list of callback functions to be called after each generation.
                         Receives as input the GeneticAlg instance.'''
-          
+        #round(T, 2))  
         self.population=initial_population
         self.fitness_fn=fitness_fn
         self.mutation_fn=mutation_fn
