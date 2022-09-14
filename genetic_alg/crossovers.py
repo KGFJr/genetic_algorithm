@@ -5,7 +5,11 @@ def single_point_crossover(parents, crossover_p):
         b = 0.2
         l=len(parents[0])
         point=np.random.choice(l)
-        child=np.concatenate((float(b)*parents[0][:point]+float(1-b)*parents[1][:point],float(1-b)*parents[0][point:]+float(b)*parents[1][point:]))
+        child1 = parents[0][:point]
+        child2 = parents[0][point:]
+        child1 =float(b)*parents[0][:point]+float(1-b)*parents[1][:point]
+        child2 =float(1-b)*parents[0][point:]+float(b)*parents[1][point:]
+        child=np.concatenate(child1,child2)
     else:
         child=parents[0]
     return child
