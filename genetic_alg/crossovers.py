@@ -13,4 +13,5 @@ def single_point_crossover(parents, crossover_p):
         child=np.concatenate((parents[0][:point],parents[1][point:]))
     else:
         child=parents[0]
+     print(parents[0])
     return child
