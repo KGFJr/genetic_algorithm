@@ -75,6 +75,7 @@ class GeneticAlg():
             parents_idx=np.random.choice(pop_size, size=2, 
                                      replace=False, p=parents_p)
             parents=[self.population[parents_idx[0]], self.population[parents_idx[1]]]
+            print(parents)
             child=self.crossover_fn(parents)
             child=self.mutation_fn(child)
             children.append(child)
