@@ -1,7 +1,8 @@
 import numpy as np
 
-def single_point_avg_crossover(parents, crossover_p, b):
+def single_point_avg_crossover(parents, crossover_p):
     if np.random.random()<crossover_p:
+        b = 0.2
         l=len(parents[0])
         point=np.random.choice(l)
         child=np.concatenate((
