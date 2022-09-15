@@ -1,17 +1,17 @@
 import numpy as np
 
-def single_point_crossover(parents, crossover_p):
+def single_point_crossover(parents, crossover_p , Beta):
     if np.random.random()<crossover_p:
-        b = 0.9
+        Beta = 0.9
         l=len(parents[0])
         point=np.random.choice(l)
         #child=np.concatenate((parents[0][:point],parenst[1][point:]))
         print(child)
-        parents0b = np.multiply(parents[0],b) 
-        parents01_b = np.multiply(parents[0],1-b)
+        parents0b = np.multiply(parents[0],Beta) 
+        parents01_b = np.multiply(parents[0],1-Beta)
         
-        parents1b = np.multiply(parents[1],b) 
-        parents11_b = np.multiply(parents[1],1-b)
+        parents1b = np.multiply(parents[1],Beta) 
+        parents11_b = np.multiply(parents[1],1-Beta)
         
         child1 = parents0b + parents11_b
         child2 = parents01_b + parents1b
