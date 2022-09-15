@@ -1,8 +1,8 @@
 import numpy as np
 
-def single_point_crossover(parents, crossover_p , Beta):
+def single_point_crossover(parents, crossover_p, Beta):
     if np.random.random()<crossover_p:
-        Beta = 0.9
+        
         l=len(parents[0])
         point=np.random.choice(l)
         #child=np.concatenate((parents[0][:point],parenst[1][point:]))
