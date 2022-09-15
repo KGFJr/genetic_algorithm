@@ -6,7 +6,6 @@ def single_point_crossover(parents, crossover_p,Beta):
         l=len(parents[0])
         point=np.random.choice(l)
         #child=np.concatenate((parents[0][:point],parenst[1][point:]))
-        print(child)
         parents0b = np.multiply(parents[0],Beta) 
         parents01_b = np.multiply(parents[0],1-Beta)
         
